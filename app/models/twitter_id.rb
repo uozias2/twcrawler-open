@@ -105,7 +105,7 @@ class TwitterId
       if TwitterId.where(:user_id => id, :relation => "public").count == 0 and TwitterId.where(:user_id => id, :relation => "root").count == 0 and id.class.to_s != "Twitter::NullObject" and tweet.user.protected != "true" and tweet.user.followers_count.to_i < 1001 and tweet.user.followers_count.to_i > 0
 
 
-        twitter_id = TwitterId.new(:user_id => id, :relation => "public", :user => Oj.dump(tweet.user, :mode => :compat),  :owner_id => "", :followers_count => tweet.user.followers_count)
+        twitter_id = TwitterId.new(:user_id => id, :relation => "public", :user => tweet.user.to_hash,  :owner_id => "", :followers_count => tweet.user.followers_count)
         twitter_id.save
         num +=  1 
         pp id.to_s + " heve been saved. total " + num.to_s + " ." #for debug
