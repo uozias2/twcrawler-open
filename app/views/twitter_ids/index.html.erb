@@ -1,0 +1,25 @@
+<h1>Listing twitter_ids</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Id</th>
+    <th>Owner</th>
+    <th>Relation</th>
+  </tr>
+
+<% @twitter_ids.each do |twitter_id| %>
+  <tr>
+    <td><%= link_to 'Show', twitter_id %></td>
+    <td><%= link_to 'Destroy', twitter_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= twitter_id.user_id %></td>
+    <td><%= twitter_id.owner_id %></td>
+    <td><%= twitter_id.relation %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+

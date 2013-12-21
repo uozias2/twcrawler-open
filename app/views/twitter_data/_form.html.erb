@@ -1,0 +1,37 @@
+<%= form_for(@twitter_datum) do |f| %>
+  <% if @twitter_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@twitter_datum.errors.count, "error") %> prohibited this twitter_datum from being saved:</h2>
+
+      <ul>
+      <% @twitter_datum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_area :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :retweeted %><br />
+    <%= f.text_area :retweeted %>
+  </div>
+  <div class="field">
+    <%= f.label :favorited %><br />
+    <%= f.text_area :favorited %>
+  </div>
+  <div class="field">
+    <%= f.label :in_reqply %><br />
+    <%= f.text_area :in_reqply %>
+  </div>
+  <div class="field">
+    <%= f.label :tweet %><br />
+    <%= f.text_field :tweet %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

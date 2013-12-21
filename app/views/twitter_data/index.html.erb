@@ -1,0 +1,31 @@
+<h1>Listing twitter_data</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>User</th>
+    <th>Retweeted</th>
+    <th>Favorited</th>
+    <th>In reqply</th>
+    <th>Retweet count</th>
+    <th>Tweet</th>
+    <th></th>
+  </tr>
+
+<% @twitter_data.each do |twitter_datum| %>
+  <tr>
+   <td><%= link_to 'Show', twitter_datum %></td>
+    <td><%= link_to 'Destroy', twitter_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= twitter_datum.user_id %></td>
+    <td><%= twitter_datum.retweeted %></td>
+    <td><%= twitter_datum.favorited %></td>
+    <td><%= twitter_datum.in_reply %></td>
+    <td><%= twitter_datum.retweet_count %></td>
+    <td><%= twitter_datum.tweet %></td>
+   </tr>
+<% end %>
+</table>
+
+<br />
+

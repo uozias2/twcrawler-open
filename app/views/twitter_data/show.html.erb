@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @twitter_datum.userId%>
+</p>
+
+<p>
+  <b>Retweeted:</b>
+  <%= @twitter_datum.retweeted %>
+</p>
+
+<p>
+  <b>Favorited:</b>
+  <%= @twitter_datum.favorited %>
+</p>
+
+<p>
+  <b>In reqply:</b>
+  <%= @twitter_datum.in_reply %>
+</p>
+
+<p>
+  <b>Retweet count:</b>
+  <%= @twitter_datum.retweet_count %>
+</p>
+
+
+
+<p>
+  <b>Tweet:</b>
+  <%= @twitter_datum.tweet.to_s %>
+</p>
+
+
+<%= link_to 'Back', twitter_data_path %>

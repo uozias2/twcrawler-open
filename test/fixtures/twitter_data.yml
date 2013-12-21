@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyText
+  retweeted: MyText
+  favorited: MyText
+  in_reqply: MyText
+  tweet: MyString
+
+two:
+  user_id: MyText
+  retweeted: MyText
+  favorited: MyText
+  in_reqply: MyText
+  tweet: MyString

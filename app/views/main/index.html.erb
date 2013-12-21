@@ -1,0 +1,42 @@
+<h1>ツイート収集プログラム</h1>
+<p>2013年12月 Saizo Aoyagi</p>
+<ul claass="nav">
+    <% if user_signed_in? %>
+        <li><%= link_to 'ttitterログアウト', destroy_user_session_path %></li>
+
+        <br />同期処理<br />
+    	<li><%= link_to "ツイート取得", :controller => "twitter_data", :action => "getTweet"  %></li>
+        <li><%= link_to "ツイート取得(id指定)", :controller => "twitter_data", :action => "getTweet", :id =>  274331049 %></li>
+    	<li><%= link_to "ツイートのリスト", :controller => "twitter_data", :action => "index"  %></li>
+        <li><%= link_to "ツイートのカウント", :controller => "twitter_data", :action => "count"  %></li>
+    	<li><%= link_to "自分のフォロワー取得", :controller => "twitter_ids", :action => "getFollowers"  %></li>
+    	<li><%= link_to "idで指定したユーザのフォロワー取得", :controller => "twitter_ids", :action => "getFollowers", :id => 274331049  %></li>
+        <li><%= link_to "自分のフレンド取得", :controller => "twitter_ids", :action => "getFriends"  %></li>
+        <li><%= link_to "idで指定したユーザのフレンド取得", :controller => "twitter_ids", :action => "getFriends", :id => 274331049  %></li>
+    	<li><%= link_to "ユーザ取得(public streamから)", :controller => "twitter_ids", :action => "getIDs"  %></li>
+        <li><%= link_to "ユーザ取得(public streamから 件数指定)", :controller => "twitter_ids", :action => "getIDs", :num => 12 %></li>
+    	<li><%= link_to "ユーザのリスト", :controller => "twitter_ids", :action => "index"  %></li>
+        <li><%= link_to "ユーザのカウント", :controller => "twitter_ids", :action => "count"  %></li>
+        
+        <br />削除系<br />
+        <li><%= link_to "ユーザのリストをクリア", :controller => "twitter_ids", :action => "clear"  %></li>
+        <li><%= link_to "ツイートのリストをクリア", :controller => "twitter_data", :action => "clear"  %></li>
+        
+        <br />非同期処理<br />
+        <li><%= link_to "getTweetsAsync", :controller => "main", :action => "getTweetsAsync" %></li>
+        <li><%= link_to "getTweetsAsync(1から)", :controller => "main", :action => "getTweetsAsync", :num => 1  %></li>
+        <li><%= link_to "getTweetsAsync(10から)", :controller => "main", :action => "getTweetsAsync", :num => 10  %></li>
+        <li><%= link_to "getIDsAsync", :controller => "main", :action => "getIDsAsync"  %></li>
+        
+        <br />実験用<br />
+        <li><%= link_to "ID収集", :controller => "twitter_ids", :action => "getIDsForExperiment"  %></li>
+        <li><%= link_to "tweet収集", :controller => "twitter_data", :action => "getTweetsForExperiment"  %></li>
+
+        <br />resque<br />
+        <li><%= link_to "resque管理", "resque"  %></li>
+
+    <% else %>
+        <li><%= link_to "twitterでログイン", user_omniauth_authorize_path(:twitter)  %></li>
+    
+    <% end %>
+</ul>
